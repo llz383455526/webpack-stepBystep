@@ -1,0 +1,28 @@
+{
+  "name": "webpack-stepBystep",
+  "version": "1.0.0",
+  "description": "step by step to webpack",
+  "main": "index.js",
+  "dependencies": {
+    "lodash": "^4.17.5"
+  },
+  "devDependencies": {
+    "webpack": "^4.1.1",
+    "webpack-cli": "^2.0.11"
+  },
+  "scripts": {
+    "build": "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/llz383455526/webpack-stepBystep.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/llz383455526/webpack-stepBystep/issues"
+  },
+  "homepage": "https://github.com/llz383455526/webpack-stepBystep#readme"
+}
