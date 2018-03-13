@@ -1,7 +1,8 @@
 /**
  * Created by Administrator on 2018/3/12.
  */
-import _ from 'lodash'
+import _ from 'lodash';
+import './style.css';
 
 function component() {
     var element = document.createElement('div');
