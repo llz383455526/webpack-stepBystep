@@ -2,7 +2,20 @@
 # webpack-stepBystep
 step by step to webpack
 
-## 起步(Getting Started)
+
+# webpack核心概念
+**核心概念：**
+
+- 入口(entry)：
+指示 webpack 应该使用哪个模块，来作为构建其内部依赖图的开始，webpack 会找出有哪些模块和 library 是入口起点（直接和间接）依赖的。
+- 输出(output)：
+告诉 webpack 在哪里输出它所创建的 bundles，以及如何命名这些文件
+- loader
+webpack 自身只支持 JavaScript。而 loader 能够让 webpack 处理那些非 JavaScript 文件，并且先将它们转换为有效 模块，然后添加到依赖图中，这样就可以提供给应用程序使用。
+- 插件(plugins)
+loader 被用于转换某些类型的模块，而插件则可以用于执行范围更广的任务，插件的范围包括：打包优化、资源管理和注入环境变量。常用的html-webpack-plugin 会为你的应用程序生成一个 html 文件，然后自动注入所有生成的 bundle。
+
+# 起步(Getting Started)
 
 ```
 The CLI moved into a separate package: webpack-cli.
@@ -15,7 +28,12 @@ Please install 'webpack-cli' in addition to webpack itself to use the CLI.
 
 >原因是现在使用的是webpack 4.x版本，webpack拆分为两部分，默认安装的webpack是一部分，另一部分是webpack-cli，需要单独安装，所以依照提示执行即可。
 
-## 资源管理(Asset Management)
+## entry 
+建议使用对象语法，扩展性强
+## output
+1. hash与chunkhash区别？
+1. 可以直接配置cdn域名。
+# 资源管理(Asset Management)
 > 非js资源管理依赖于loader
 
 ### 模块
@@ -34,3 +52,8 @@ Please install 'webpack-cli' in addition to webpack itself to use the CLI.
 
 > 当该模块运行时，含有 CSS 字符串的 <style> 标签，将被插入到 html 文件的 <head> 中。bundle.js动态在引入的html头部插入style标签和对应css内容。
 1. 图片文件处理
+
+
+# plugins
+1. [HtmlWebpackPlugin](https://webpack.docschina.org/plugins/html-webpack-plugin)
+根据提供的模板生成html文件，并将生成的bundle文件注入到html文件中，避免每次手动改动引用
