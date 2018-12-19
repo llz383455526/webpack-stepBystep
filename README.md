@@ -31,7 +31,12 @@ Please install 'webpack-cli' in addition to webpack itself to use the CLI.
 ## entry 
 建议使用对象语法，扩展性强
 ## output
-1. hash与chunkhash区别？
+1. hash\chunkhash\contenthash区别？
+- hash
+  所有js文件使用同一个hash值。修改一个js，所有bundle的名称都会改变
+- chunkhash
+  代码不变，编译后的名称还是可能会变。因为每个chunk里不仅包括代码还包括了boilerplate（如runtime和manifest），当使用不同版本的webpack时，这些boilerplate内容可能会不同，导致chunkhash发生了改变。
+- contenthash
 1. 可以直接配置cdn域名。
 # 资源管理(Asset Management)
 > 非js资源管理依赖于loader
@@ -55,5 +60,17 @@ Please install 'webpack-cli' in addition to webpack itself to use the CLI.
 
 
 # plugins
+## 内置插件
+1. HashedModuleIdsPlugin 根据模块相对路径生成一个四位数(默认)的hash作为模块id。
+默认情况下webpack打包时使用的module id是基于默认的解析顺序进行增量。所以有新引入模块时，其它的模块id也会发生改变，从而导致模块名称(chunkhash)发生改变
+
+
+## 第三方插件
 1. [HtmlWebpackPlugin](https://webpack.docschina.org/plugins/html-webpack-plugin)
 根据提供的模板生成html文件，并将生成的bundle文件注入到html文件中，避免每次手动改动引用
+
+
+# 备注
+1. 通过import引入的自定义模块，如果没有使用，是不会打到bundle里 [已验证]。但是对于node_modules里的模块（lodash），如果import，即使没有使用，
+依旧会打包进bundle
+1. 
