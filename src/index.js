@@ -2,7 +2,7 @@
  * Created by Administrator on 2018/3/12.
  */
 import _ from 'lodash';
-import './style.css';
+// import './style.css';
 import entry from './entry2';
 
 function component() {

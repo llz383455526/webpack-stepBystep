@@ -16,6 +16,7 @@
     "webpack-manifest-plugin": "^2.0.4"
   },
   "scripts": {
+    "dev": "webpack --config ./config/webpack.common.js",
     "build": "webpack --color",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
